@@ -1,25 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import './reset.css';
 import './App.css';
+import Home from './Home'
+import Eat from './Eat'
+import Restaurant from './Restaurant'
+import {Switch, Route} from 'react-router-dom'
 
 class App extends Component {
+
+  state = {
+    restaurants: [
+      {name: 'Cafe Henkel', address: '102 Henkel Street, Brunswick VIC 3056', lat: '-37.765010', long: '144.954500'},
+      {name: 'Ciao Mamma Pasta Bar', address: '3 Union Street, Brunswick VIC 3056', lat: '-37.774310', long: '144.960020'},
+      {name: 'Delhicious Cuisine', address: '91 Upper Heidelberg Road, Ivanhoe VIC 3079', lat: '-37.769460', long: '145.041300'},
+      {name: 'Hemp Kitchen', address: '1/173-177 Barkly Street, St Kilda VIC 3182', lat: '-37.867800', long: '144.980890'},
+      {name: 'Mediterraneo Charcoal Restaurant', address: '116 Bridport Street, Albert Park VIC 3206', lat: '-37.840610', long: '144.956010'},
+      {name: 'Shop 225 Pizzeria', address: '225 Melville Road, Pascoe Vale South VIC 3044', lat: '-37.739800', long: '144.945370'},
+      {name: 'Sweet Salt', address: '296 High Street, Northcote VIC 3070', lat: '-37.771470', long: '144.998740'},
+      {name: 'Wellzones GF', address: 'Shop 10, 436 Burke Road, Camberwell VIC 3124', lat: '-37.821390', long: '145.058650'},
+      {name: 'I Love Dumplings', address: '2/29 Fitzroy Street, St Kilda VIC 3182', lat: '-37.861700', long: '144.973600'},
+      {name: 'Bay City Burrito', address: '4-7 Shakespeare Grove, St Kilda VIC 3182', lat: '-37.868210', long: '144.978170'},
+      {name: 'Lona', address: '64/66 Acland Street, St Kilda VIC 3182', lat: '-37.866720', long: '144.978250'},
+      {name: 'Vegie Bar', address: '380 Brunswick Street, Fitzroy VIC 3065', lat: '-37.795850', long: '144.979100'}
+  ]
+  }
+
   render() {
+
+    const { restaurants } = this.state
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <nav>
+
+        </nav>
+          <main>
+            <Switch>
+              <Route exact path="/" render={() => <Home />} />
+              <Route exact path="/eat" render={() => <Eat data={ restaurants } />} />
+              <Route exact path="/restaurants/:name" render={(props) => 
+                <Restaurant {...props }/>} />
+            </Switch>
+          </main>
+
+
+
+
       </div>
     );
   }
