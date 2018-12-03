@@ -10,11 +10,12 @@ export default function Restaurants(props) {
 
     {props.data.map(restaurant => (
       <div key={restaurant.name}>
-        <h3>
+        <p className="list-view">
           <Link to={`/restaurants/${restaurant.name}`}>
           {restaurant.name}</Link>
-        </h3>
-        <p><a href={`maps://maps.apple.com/?11=${restaurant.lat}, ${restaurant.long}&z=18&daddr=${restaurant.address}&dirflg=w&t=m` } target="blank"> {restaurant.address}</a></p>
+        </p>
+        <p className="list-view"><a href={`maps://maps.apple.com/?11=${restaurant.lat}, ${restaurant.long}&z=18&daddr=${restaurant.address}&dirflg=w&t=m` } target="blank"> {restaurant.address}</a></p>
+        <hr></hr>
       </div>
     ))}
 
