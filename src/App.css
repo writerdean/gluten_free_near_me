@@ -9,7 +9,7 @@ body {
   color: rgb(141, 160, 201);
 }
 
-
+#mapid { height: 180px; }
 
 .title {
   margin-top: 25px;
@@ -20,7 +20,7 @@ body {
 .button {
 
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 2rem;
   margin: 25px 0;
 
 }

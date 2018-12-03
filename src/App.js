@@ -4,7 +4,8 @@ import './App.css';
 import Home from './Home'
 import Eat from './Eat'
 import Restaurant from './Restaurant'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Link} from 'react-router-dom'
+
 
 class App extends Component {
 
@@ -21,7 +22,8 @@ class App extends Component {
       {name: 'I Love Dumplings', address: '2/29 Fitzroy Street, St Kilda VIC 3182', lat: '-37.861700', long: '144.973600'},
       {name: 'Bay City Burrito', address: '4-7 Shakespeare Grove, St Kilda VIC 3182', lat: '-37.868210', long: '144.978170'},
       {name: 'Lona', address: '64/66 Acland Street, St Kilda VIC 3182', lat: '-37.866720', long: '144.978250'},
-      {name: 'Vegie Bar', address: '380 Brunswick Street, Fitzroy VIC 3065', lat: '-37.795850', long: '144.979100'}
+      {name: 'Vegie Bar', address: '380 Brunswick Street, Fitzroy VIC 3065', lat: '-37.795850', long: '144.979100'}, 
+      {name: 'Royal Stack', address: '470 Collins Street, Melbourne VIC 3000', lat: '-37.817325', long: '144.958290'}
   ]
   }
 
@@ -32,14 +34,14 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-
+        <Link to="/">Home</Link>
         </nav>
           <main>
             <Switch>
               <Route exact path="/" render={() => <Home />} />
               <Route exact path="/eat" render={() => <Eat data={ restaurants } />} />
               <Route exact path="/restaurants/:name" render={(props) => 
-                <Restaurant {...props }/>} />
+                <Restaurant data={restaurants} {...props }/>} />
             </Switch>
           </main>
 
