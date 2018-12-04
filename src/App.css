@@ -2,7 +2,7 @@
 
 /* font-family: 'Open Sans', sans-serif;
 font-family: 'Roboto', sans-serif; */
-
+/
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -24,7 +24,16 @@ nav {
   color: white;
   margin: 25px 0 25px 0;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
+}
+
+.btn-small {
+  border-radius: 5%;
+  width: 25%;
+  margin: 25px auto;
+  display: block;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .btn-large {
@@ -33,10 +42,9 @@ nav {
   margin: 25px auto;
   display: block;
   text-align: center;
-  font-size: 2rem;
-
+  font-size: 3rem;
 }
 
 .light-blue {
   border: 1px solid black;
-}
+} 

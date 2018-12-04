@@ -8,8 +8,7 @@ export default function Restaurant(props) {
     restaurant.name === props.match.params.name)
 
     return(
-      <section>
-
+      <section className="card panel white-text light-blue darken-3">
 
         <p className="list-view">{restaurant.name}</p>
         <p className="list-view"><a href={`maps://maps.apple.com/?11=${restaurant.lat}, ${restaurant.long}&z=18&daddr=${restaurant.address}&dirflg=w&t=m` } target="blank"> {restaurant.address}</a></p>
