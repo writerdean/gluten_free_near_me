@@ -13,9 +13,9 @@ export default function Restaurant(props) {
         <p className="restaurant-name">{restaurant.name}</p>
         <p className="restaurant-address"><a href={`maps://maps.apple.com/?11=${restaurant.lat}, ${restaurant.long}&z=18&daddr=${restaurant.address}&dirflg=w&t=m` } target="blank"> {restaurant.address}</a></p>
 
-        <p className="list-view">{`Cuisine:  ${restaurant.cuisine}`}</p>
-        <p className="list-view">{`Comments:  ${restaurant.comments}`}</p>
-        
+        <p className="cuisine">{`Cuisine:  ${restaurant.cuisine}`}</p>
+        <p className="comments">{`Comments:  ${restaurant.comments}`}</p>
+        <p className="url"><a href={`${restaurant.url}`}>{restaurant.url}</a></p>
       </section>
       
     )
