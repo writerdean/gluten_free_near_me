@@ -8,15 +8,19 @@ body {
 }
 
 h1 {
+  text-align: center;
   font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
 }
 
-
+p {
+  padding: 0 15px;
+}
 nav {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: rgb(18, 18, 187);
+  /* background-color: rgb(18, 18, 187); */
 }
 
 .card {
@@ -30,7 +34,7 @@ nav {
 }
 
 .restaurant-address {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .cuisine {
@@ -40,5 +44,13 @@ nav {
 
 .url {
   font-style: italic;
-  
+}
+
+.image-container {
+  height: 100px;
+  width: 100%;
+}
+
+image {
+  object-fit: cover;
 }

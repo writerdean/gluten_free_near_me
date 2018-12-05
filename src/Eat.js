@@ -7,19 +7,26 @@ export default function Eat(props) {
     <section>
 
     {props.data.filter(restaurant => restaurant.distance <= 1.5).map(restaurant => (
-      <div  className="card small" key={restaurant.name}>
-        <div className="name-container">
-          <div className="restaurant-name">
-            <Link to={`/restaurants/${restaurant.name}`}>
-            {restaurant.name}</Link>
-          </div><div className="right">{restaurant.distance}</div>
+      <div  className="card medium" key={restaurant.name}>
+{/* this is the beginnin of where I changed things */}
+        <div className="row">
+          <div className="col s12 m7">
+            <div className="card">
+              <div className="card-image">
+              <img src={`${restaurant.image_url}`} alt=""></img>
+              <span className="card-title"><Link to={`/restaurants/${restaurant.name}`}>
+            {restaurant.name}</Link>    
+        </span>
+              </div>
+              <div className="card-content">
+              <p className="cuisine">{`Cuisine:  ${restaurant.cuisine}`}</p>
+              </div>
+              <div className="card-action">
+              <a href={`maps://maps.apple.com/?11=${restaurant.lat}, ${restaurant.lon}&z=18&daddr=${restaurant.address}&dirflg=w&t=m` } target="blank"> {restaurant.address}</a>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <p className="restaurant-address"><a href={`maps://maps.apple.com/?11=${restaurant.lat}, ${restaurant.lon}&z=18&daddr=${restaurant.address}&dirflg=w&t=m` } target="blank"> {restaurant.address}</a></p>
-
-        <p className="cuisine">{`Cuisine:  ${restaurant.cuisine}`}</p>
-        <p className="comments">{`Comments:  ${restaurant.comments}`}</p>
-        <p className="url"><a href={`${restaurant.url}`}>{restaurant.url}</a></p>
 
 
       </div>
