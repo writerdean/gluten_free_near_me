@@ -2,7 +2,7 @@
 
 /* font-family: 'Open Sans', sans-serif;
 font-family: 'Roboto', sans-serif; */
-/
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -11,41 +11,30 @@ h1 {
   font-family: 'Roboto', sans-serif;
 }
 
-.list-view {
-  font-size: 2rem;
-  color: white;
-}
 
 nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: rgb(18, 18, 187);
+}
+
+.card {
+  padding: 0 10px;
+}
+
+.restaurant-name {
   display: inline;
-  font-size: 1rem;
-}
-
-.title {
-  color: white;
-  margin: 25px 0 25px 0;
-  text-align: center;
-  font-size: 3rem;
-}
-
-.btn-small {
-  border-radius: 5%;
-  width: 25%;
-  margin: 25px auto;
-  display: block;
-  text-align: center;
   font-size: 2rem;
+  font-variant: small-caps;
 }
 
-.btn-large {
-  border-radius: 5%;
-  width: 75%;
-  margin: 25px auto;
-  display: block;
-  text-align: center;
-  font-size: 3rem;
+.restaurant-address {
+  font-size: 1.25rem;
 }
 
-.light-blue {
-  border: 1px solid black;
-} 
+.comments {
+  color: grey;
+  font-size: .75rem;
+  
+}

@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import './reset.css';
 import './App.css';
-import Home from './Home'
+// import Home from './Home'
 import Eat from './Eat'
 import Restaurant from './Restaurant'
 import {Switch, Route, Link} from 'react-router-dom'
 
-let currLat = -37.861131
-let currLong = 144.9723142
+let currLat = -37.818241
+let currLong = 144.959108
 
-// M.AutoInit();
+// function getUserLocation() {
 
-function getUserLocation() {
+//   function success(position) {
+//     let latitude  = position.coords.latitude;
+//     let longitude = position.coords.longitude;
+//     console.log(latitude + ', ' + longitude)
+//   }
 
-  function success(position) {
-    let latitude  = position.coords.latitude;
-    let longitude = position.coords.longitude;
-    console.log(latitude + ', ' + longitude)
-  }
+//   function error() {
+//     console.log("Unable to retrieve your location");
+//   }
 
-  function error() {
-    console.log("Unable to retrieve your location");
-  }
-
-navigator.geolocation.getCurrentPosition(success, error);
-}
-console.log(getUserLocation())
+// navigator.geolocation.getCurrentPosition(success, error);
+// }
+// console.log(getUserLocation())
 
 
 const calcDistance = (lat1, lon1, lat2, lon2) => {
@@ -49,8 +47,8 @@ class App extends Component {
       {name: 'Ciao Mamma Pasta Bar', address: '3 Union Street, Brunswick VIC 3056', cuisine: 'pasta', lat: '-37.774310', lon: '144.960020', distance: '', comments: ''},
       {name: 'Delhicious Cuisine', address: '91 Upper Heidelberg Road, Ivanhoe VIC 3079', cuisine: '', lat: '-37.769460', lon: '145.041300', distance: '', comments: ''},
       {name: 'Fathers Office', address: '249 Lt Lonsdale Street, Melbourne, 3000, VIC', cuisine: 'international', lat: '-37.809112', lon: '144.969294', distance: '', comments: ''},
-      {name: 'Fresh Twisted Cafe', address: '156 Eaton Rd, Chico CA 95973 USA', cuisine: '', lat: '.773233', lon: '121.876961', distance: '', comments: 'gluten free bread available'}, 
-      {name: 'Gazi Restaurant', address: '2 Exhibition Street, Melbourne, 3000, VIC', cuisine: 'greek', lat: '-37.928171', lon: '145.192372', distance: '', comments: ''},
+      {name: 'Fresh Twisted Cafe', address: '156 Eaton Rd, Chico CA 95973 USA', cuisine: '', lat: '39.773233', lon: '121.876961', distance: '', comments: 'gluten free bread available'}, 
+      {name: 'Gazi Restaurant', address: '2 Exhibition Street, Melbourne, 3000, VIC', cuisine: 'greek', lat: '-37.815305', lon: '144.972619', distance: '', comments: ''},
       {name: 'Guzman Y Gomez', address: '289-299 Swanston Street, Melbourne, 3000, VIC', cuisine: 'mexican', lat: '-37.811157', lon: '144.964302', distance: '', comments: ''},
       {name: 'Hemp Kitchen', address: '1/173-177 Barkly Street, St Kilda VIC 3182', cuisine: 'pizza', lat: '-37.867800', lon: '144.980890', distance: '', comments: ''},
       {name: 'I Love Dumplings', address: '2/29 Fitzroy Street, St Kilda VIC 3182', cuisine: 'asian', lat: '-37.861700', lon: '144.973600', distance: '', comments: ''},
@@ -67,11 +65,6 @@ class App extends Component {
       {name: 'Vegie Bar', address: '380 Brunswick Street, Fitzroy VIC 3065', cuisine: 'vegetarian', lat: '-37.795850', lon: '144.979100', distance: '', comments: ''}, 
       {name: 'Wellzones GF', address: 'Shop 10, 436 Burke Road, Camberwell VIC 3124', cuisine: 'cafe', lat: '-37.821390', lon: '145.058650', distance: '', comments: ''}
       ]
-    // user:[
-    //   {latitude: latitude,
-    //     longitude: longitude
-    //   }
-    //   ]
   };
 
   componentDidMount = () => {
@@ -93,7 +86,7 @@ class App extends Component {
   //     return 1;
   //     return 0;
   //   }
-  //   restaurants.sort(compare)
+  //   sortList.sort(compare)
 
   render() {
 
@@ -102,22 +95,26 @@ class App extends Component {
 
     return (
       <div>
-
         <main>
-        <h1 className="title light-blue darken-3">Gluten Free Near Me</h1> 
-          <nav className="light-blue darken-3">
-            <Link className="light-blue darken-3 btn-small left" to="/">Home</Link>
-            <div className="light-blue darken-3 btn-small right">Sort List</div>
-          </nav>
+          <div className="navbar-fixed">
+            <nav>
+              <div className="nav-wrapper">
+                <a href="#" className="brand-logo right">GFNM</a>
+                  <ul id="nav-mobile" className="left">
+                    <li><Link to="/">Home</Link></li>
+                  </ul>
+              </div>
+  </nav>
+          </div>
+
 
             <Switch>
-              <Route exact path="/" render={() => <Home />} />
-              <Route exact path="/eat" render={() => <Eat data={ restaurants } />} />
+              {/* <Route exact path="/" render={() => <Home />} /> */}
+              <Route exact path="/" render={() => <Eat data={ restaurants } />} />
               <Route exact path="/restaurants/:name" render={(props) => 
                 <Restaurant data={restaurants} {...props }/>} />
             </Switch>
-          </main>
-
+        </main>
       </div>
     );
   }
