@@ -13,7 +13,7 @@ export default function Eat(props) {
             <div className="card">
               <div className="card-image">
               <img src={`${restaurant.image_url}`} alt=""></img>
-              <span className="card-title"><Link to={`/restaurants/${restaurant.name}`}>
+              <span className="card-title name-eat"><Link to={`/restaurants/${restaurant.name}`}>
             {restaurant.name}</Link>    
         </span>
               </div>
