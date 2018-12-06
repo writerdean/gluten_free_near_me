@@ -17,7 +17,7 @@ export default function Restaurant(props) {
 
         <p className="cuisine">{`Cuisine:  ${restaurant.cuisine}`}</p>
         <p className="comments">{`Comments:  ${restaurant.comments}`}</p>
-        <p className="url"><a href={`${restaurant.url}`}>{restaurant.url}</a></p>
+        <p className="url"><a href={`${restaurant.url}`} target="blank">{restaurant.url}</a></p>
       </section>
       
     )
