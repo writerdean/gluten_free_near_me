@@ -42,6 +42,11 @@ nav {
   font-size: .75rem;
 }
 
+.distance {
+  color: gray;
+  font-size: .75rem;
+}
+
 .url {
   font-style: italic;
 }

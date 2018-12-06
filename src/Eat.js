@@ -8,7 +8,6 @@ export default function Eat(props) {
 
     {props.data.filter(restaurant => restaurant.distance <= 1.5).map(restaurant => (
       <div  className="card medium" key={restaurant.name}>
-{/* this is the beginnin of where I changed things */}
         <div className="row">
           <div className="col s12 m7">
             <div className="card">

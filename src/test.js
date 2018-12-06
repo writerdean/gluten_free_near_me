@@ -35,3 +35,30 @@
         <p className="cuisine">{`Cuisine:  ${restaurant.cuisine}`}</p>
         <p className="comments">{`Comments:  ${restaurant.comments}`}</p>
         <p className="url"><a href={`${restaurant.url}`}>{restaurant.url}</a></p>
+
+
+
+          componentDidMount = () => {
+    this.setState({
+      restaurants: this.state.restaurants.map(restaurant => {
+        return { 
+          ...restaurant, 
+          distance: calcDistance(currLat, currLong, restaurant.lat, restaurant.lon)
+        }
+      })
+    })
+  }
+
+
+  function getUserLocation() {
+  function success(position) {
+    currLat  = position.coords.latitude;
+    currLong = position.coords.longitude;
+    console.log(currLat + ', ' + currLong);
+  }
+  function error() {
+    console.log("Unable to retrieve your location");
+  }
+  navigator.geolocation.getCurrentPosition(success, error);
+}
+getUserLocation();
